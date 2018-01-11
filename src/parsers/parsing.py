@@ -1,7 +1,7 @@
 '''
 Created on 25 de nov de 2017
 
-@author: Renan
+@author: Israël & Renan
 '''
 class Parser:
     def __init__(self,filename):
