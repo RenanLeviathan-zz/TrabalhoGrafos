@@ -26,14 +26,14 @@ class Parser:
                     n[idx]={}
                 elif s=='>':
                     q='q3'
-                elif '0'<=s<='9':
+                    n[idx][sidx]={}
+                elif '0'<=s<='9' and sidx=='':
                     idx+s
-                    if sidx!='':
+                elif sidx!='':
                         sidx+=s
             elif q=='q2':
                 q='q1'
                 sidx=s
-                n[idx][sidx]={}
             elif q=='q3':
                 if s.isdigit():
                     t+=s
@@ -45,10 +45,13 @@ class Parser:
                     q='q6'
                     n[idx][sidx]=float(t)
                     t=''
+                    idx=''
+                    sidx=''
                 if s==',':
                     q='q5'
                     n[idx][sidx]=float(t)
                     t=''
+                    sidx=''
             elif q=='q5':
                 sidx=s
                 q='q1'
